@@ -15,7 +15,7 @@
 
 static int sock = -1;
 
-esp_err_t udp_init(void)
+esp_err_t app_udp_init(void)
 {
     struct sockaddr_in dest_addr;
     
@@ -46,7 +46,7 @@ esp_err_t udp_init(void)
     return ESP_OK;
 }
 
-esp_err_t udp_send(const char *dest_ip, const void *message, size_t len)
+esp_err_t app_udp_send(const char *dest_ip, const void *message, size_t len)
 {
     if (sock < 0) {
         return ESP_ERR_INVALID_STATE;
@@ -129,7 +129,7 @@ void udp_task(void *pvParameters)
     ESP_LOGI(TAG, "Local IP: %s", local_ip);
     
     // Initialize UDP
-    if (udp_init() != ESP_OK) {
+    if (app_udp_init() != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize UDP");
         vTaskDelete(NULL);
         return;
@@ -143,7 +143,7 @@ void udp_task(void *pvParameters)
                     local_ip, esp_timer_get_time() / 1000);
             
             ESP_LOGI(TAG, "Sending message to %s", PARTNER_IP);
-            udp_send(PARTNER_IP, message, strlen(message));
+            app_udp_send(PARTNER_IP, message, strlen(message));
         }
         
         // Check for incoming messages
@@ -160,7 +160,7 @@ void udp_task(void *pvParameters)
                 snprintf(response, sizeof(response), "Response from %s: received your message", 
                         local_ip);
                 
-                udp_send(sender_ip, response, strlen(response));
+                app_udp_send(sender_ip, response, strlen(response));
             }
         }
         

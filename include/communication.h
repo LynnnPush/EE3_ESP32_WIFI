@@ -8,7 +8,7 @@
  * 
  * @return esp_err_t ESP_OK on success, otherwise an error code
  */
-esp_err_t udp_init(void);
+esp_err_t app_udp_init(void);
 
 /**
  * @brief Send a message via UDP
@@ -18,7 +18,7 @@ esp_err_t udp_init(void);
  * @param len Length of the message
  * @return esp_err_t ESP_OK on success, otherwise an error code
  */
-esp_err_t udp_send(const char *dest_ip, const void *message, size_t len);
+esp_err_t app_udp_send(const char *dest_ip, const void *message, size_t len);
 
 /**
  * @brief Receive a message via UDP (non-blocking)
