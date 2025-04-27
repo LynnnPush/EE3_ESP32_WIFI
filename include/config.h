@@ -2,8 +2,8 @@
 #define CONFIG_H
 
 // Wi-Fi configuration
-#define WIFI_SSID "YourWiFiSSID"
-#define WIFI_PASSWORD "YourWiFiPassword"
+#define WIFI_SSID "LynnsHW"
+#define WIFI_PASSWORD "HWlsh123!"
 #define WIFI_CONNECT_RETRY_MAX 10
 
 // Communication configuration
@@ -11,7 +11,7 @@
 
 // Device role configuration
 // Set to 1 for device A, 0 for device B to distinguish between them
-#define DEVICE_IS_SENDER 1
+#define DEVICE_IS_SENDER 0
 
 // Communication partner IP (update this with the IP of the other ESP32)
 #define PARTNER_IP "192.168.1.X"
