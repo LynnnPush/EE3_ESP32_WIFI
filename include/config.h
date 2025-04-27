@@ -11,10 +11,10 @@
 
 // Device role configuration
 // Set to 1 for device A, 0 for device B to distinguish between them
-#define DEVICE_IS_SENDER 0
+#define DEVICE_IS_SENDER 1
 
 // Communication partner IP (update this with the IP of the other ESP32)
-#define PARTNER_IP "192.168.1.X"
+#define PARTNER_IP "192.168.43.137"
 
 // Time intervals (in milliseconds)
 #define SEND_INTERVAL_MS 2000
